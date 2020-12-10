@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+<style type="text/css">
+.bats{
+width:200px;
+height:200px;
+background-size:contain;
+position:absolute;
+transition:2s;
+background-repeat:no-repeat;
+}
+
+body{
+background-color:lightblue;
+}
+</style>
+</head>
+<body>
+ <audio src="playmusic.mp3" id="my_music" loop="loop" autoplay="autoplay"></audio>
+
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("my_music").play();
+    }
+    
+    var array = ["url(bat.png)", "url(crab.png)", "url(rabbit.png)", "url(fish.png)"];
+
+    function makeBats() {
+        var randomNumber = Math.round(Math.random() * 3);
+        var bats = document.createElement('div');
+
+        if (randomNumber == 0) {
+            bats.innerHTML = "Click this";
+            bats.onclick = function () {
+                window.location.href = 'lol.html';
+            }
+        }
+
+        if (randomNumber == 1) {
+            bats.innerHTML = "Click this";
+            bats.onclick = function () {
+                window.location.href = 'https://www.factretriever.com/crab-facts';
+            }
+        }
+
+        document.body.appendChild(bats);
+        bats.classList.add("bats");
+
+        bats.style.backgroundImage = array[randomNumber];
+
+        function position() {
+            bats.style.left = 1200 * Math.random() + "px";
+            bats.style.top = 1000 * Math.random() + "px";
+
+        }
+
+        setInterval(position, 2000)
+
+
+
+    };
+
+
+
+    for (var i = 0; i < 10; i = i + 2) { makeBats() };
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

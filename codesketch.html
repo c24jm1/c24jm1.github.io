@@ -22,7 +22,10 @@
 			background-color: aqua;
 			border-radius: 20%;
 			transform: rotateX(720deg);
-
+		}
+		#output {
+			font-size: 20px;
+			font-family: 'times new roman';
 		}
 
 
@@ -71,67 +74,199 @@
 			"z",
 		]
 
-		var dict = {
+		var arrayy = [
+		"billy",
+		"A",
+		"B",
+		"C",
+		"D",
+		"E",
+		"F",
+		"G",
+		"H",
+		"I",
+		"J",
+		"K",
+		"L",
+		"M",
+		"N",
+		"O",
+		"P",
+		"Q",
+		"R",
+		"S",
+		"T",
+		"U",
+		"V",
+		"W",
+		"X",
+		"Y",
+		"Z",
 
-			a: 1,
-			b: 2,
-			c: 3,
-			d: 4,
-			e: 5,
-			f: 6,
-			g: 7,
-			h: 8,
-			i: 9,
-			j: 10,
-			k: 11,
-			l: 12,
-			m: 13,
-			n: 14,
-			o: 15,
-			p: 16,
-			q: 17,
-			r: 18,
-			s: 19,
-			t: 20,
-			u: 21,
-			v: 22,
-			w: 23,
-			x: 24,
-			y: 25,
-			z: 26,
-
-		}
+		]
 
 		var button = document.getElementById("cat");
 
 		var input_box = document.getElementById("input")
 
-
-
 		button.addEventListener("click", function(){
 
 			var input = input_box.value;
 			//console.log(array.indexOf(input));
-			console.log(Array.from(input));
+			var array2 = Array.from(input);
 			//turn each element into number
-			
-			//add a set number to each number
-			//Find the element at that index
-			//Output that
+			var conversion = " ";
+			var conversion2 = " ";
+			var normletterindex = new Array();
+			var capletterindex = new Array();
+			var notletterindex = new Array();
+			var notletterstuff = new Array();
+			normletterlength = 0;
+			capletterlength = 0;
+			s = 0;
+			r = 0;
+			n=0;
+			for(var i = 0; i< input.length; i++){
+				for(j = 1; j<27; j++){
+					if(array2[i] == array[j]){
+						conversion += array.indexOf(array2[i]) + " ";
+						normletterindex[s] = i;
+						s++;
+					}
+					else if(array2[i] == arrayy[j]){
+						capletterindex[n] = i;
+						n++;
+						conversion2 += arrayy.indexOf(array2[i]) + " ";
+					}
+					//this isn't working because it needs to fill out the for loop. You're saying that if this isn't the letter a, cap or not, then put it in. That's stupid. 
+					//or maybe put it outside the second for loop...
+				}
+				if(normletterlength != s || capletterlength !=n){
+					notletterindex[r] = i;
+					notletterstuff[r] = array2[i];
+					r++;
+					if(normletterlength != s){
+//I don't think this idea is working. Maybe do something with the sum of s, r, and n?
+					}
+				}
+			}
 
+
+			//console.log(conversion);
+			//add a set number to each number; right now the numbers are chars/strings not ints. Use Number() for this.
+
+				var array32 = Array.from(conversion2);
+				j = 0;
+				var ar = new Array();
+				for(i = 0; i<conversion2.length; i++){
+					if(array32[i] == " "){
+						ar[j] = i;
+						j++
+					}
+				}
+
+				j = 0;
+				var ar2 = new Array();
+				for(i = 0; i<ar.length-1; i++){
+					ar2[j] = conversion2.substring(ar[i]+1,ar[i+1]);
+					j++
+				}
+				j = 0;
+				var ar3 = new Array();
+				for(i = 0; i<ar2.length; i++){
+					ar3[j] = Number(ar2[i])+1;
+					j++
+				}
+				conversion2 = "";
+				for(i = 0; i<ar3.length;i++){
+					if(ar3[i]%26==0){
+						conversion2 += arrayy[26];
+					}
+					else{
+						conversion2 += arrayy[ar3[i]%26];
+					}
+					
+				}
+				console.log(conversion2);
+
+			//where cap end and normal begins
+			
+			var array3 = Array.from(conversion);
+
+			     j = 0; 
+			     var arr = new Array();
+
+        for (i = 0; i < conversion.length; i++){
+             if (array3[i] == " " ) { 
+               arr[j] = i;  
+               j++;   // bump up the arr2 index
+			}
+     }
+     			j=0;
+     			var arr2 = new Array();
+     			for(i = 0; i<arr.length-1; i++){
+     				arr2[j] = conversion.substring(arr[i]+1,arr[i+1] );
+     				j++;
+     }
+
+     		j = 0;
+     		var arr3 = new Array();
+     		//arr3 is now having the numerical forms plus amount.
+     		for(i = 0; i<arr2.length; i++){
+     			arr3[j] = Number(arr2[i])+1;
+     			j++;
+     		}
+
+     		conversion = "";
+
+     		for(i = 0; i<arr3.length; i++){
+     			if(arr3[i]<=26){
+     				conversion += array[arr3[i]];
+}
+				else if(arr3[i]>26){
+					conversion += array[arr3[i]%26]
+				}
+     		}
+     		console.log(conversion);
+
+     		hopefullylastarray1 = Array.from(conversion);
+     		hopefullylastarray2 = Array.from(conversion2);
+
+     		console.log(hopefullylastarray2);
+     		console.log(hopefullylastarray1);
+     		console.log(normletterindex);
+     		console.log(capletterindex);
+     		console.log(notletterindex);
+     		console.log(notletterstuff);
+
+     		var lastconversion = "";
+     		//okay something here isn't working. It freaking CRASHED.
+     		for(i = 0; i<input.length; i++){
+     			for(j = 0; j<conversion.length; j++){
+     				if(normletterindex[j]== i){
+     					lastconversion += hopefullylastarray1[j];
+     						}
+     			}
+     			for(k = 0; k<conversion2.length; k++){
+     				if(capletterindex[k] == i){
+     					lastconversion += hopefullylastarray2[k];
+     						}
+     				}
+     			for(l = 0; j<notletterindex.length; l++){
+     				if(notletterindex[l]==i){
+     					lastconversion += notletterstuff[l];
+     						}
+     					}	
+     		}
+     		    console.log(lastconversion);
+
+
+			//create div that says it.
+
+			//Document.createElement('div')
 
 
 		});
-
-		/*Scanner scan = new Scanner(System.in);
-		var inword = scan.next();
-		char[] whoa = inword.toCharArray();
-		return whoa; */
-
-
-
-
-
 
 
 
