@@ -23,9 +23,13 @@
 			border-radius: 20%;
 			transform: rotateX(720deg);
 		}
-		#output {
+		.output {
 			font-size: 20px;
-			font-family: 'times new roman';
+			font-family: 'architects daughter';
+		}
+		.outputbox{
+			background-color: lavender;
+			height: 80px;
 		}
 
 
@@ -121,12 +125,12 @@
 			var capletterindex = new Array();
 			var notletterindex = new Array();
 			var notletterstuff = new Array();
-			normletterlength = 0;
-			capletterlength = 0;
+			everythinglength = 0;
 			s = 0;
 			r = 0;
 			n=0;
 			for(var i = 0; i< input.length; i++){
+				everythinglength +=1;
 				for(j = 1; j<27; j++){
 					if(array2[i] == array[j]){
 						conversion += array.indexOf(array2[i]) + " ";
@@ -138,18 +142,19 @@
 						n++;
 						conversion2 += arrayy.indexOf(array2[i]) + " ";
 					}
-					//this isn't working because it needs to fill out the for loop. You're saying that if this isn't the letter a, cap or not, then put it in. That's stupid. 
-					//or maybe put it outside the second for loop...
 				}
-				if(normletterlength != s || capletterlength !=n){
+				if(s+n+r != everythinglength){
 					notletterindex[r] = i;
 					notletterstuff[r] = array2[i];
 					r++;
-					if(normletterlength != s){
-//I don't think this idea is working. Maybe do something with the sum of s, r, and n?
+					everythinglength = s + n + r;
+//If there's two symbols, it'll only count one of them. If there's one, it'll count everything after the exclam as a symbol.
+//this part might(?) be related to the everythinglength -= 1 part maybe?
+//If the exclams are separated, it doesn't work too. 
+//no clue why this one doesn't work. 
 					}
 				}
-			}
+			
 
 
 			//console.log(conversion);
@@ -187,7 +192,6 @@
 					}
 					
 				}
-				console.log(conversion2);
 
 			//where cap end and normal begins
 			
@@ -227,13 +231,10 @@
 					conversion += array[arr3[i]%26]
 				}
      		}
-     		console.log(conversion);
 
      		hopefullylastarray1 = Array.from(conversion);
      		hopefullylastarray2 = Array.from(conversion2);
 
-     		console.log(hopefullylastarray2);
-     		console.log(hopefullylastarray1);
      		console.log(normletterindex);
      		console.log(capletterindex);
      		console.log(notletterindex);
@@ -252,7 +253,7 @@
      					lastconversion += hopefullylastarray2[k];
      						}
      				}
-     			for(l = 0; j<notletterindex.length; l++){
+     			for(l = 0; l<notletterindex.length; l++){
      				if(notletterindex[l]==i){
      					lastconversion += notletterstuff[l];
      						}
@@ -261,17 +262,13 @@
      		    console.log(lastconversion);
 
 
-			//create div that says it.
-
-			//Document.createElement('div')
-
-
-		});
-
-
-
 	</script>
 
+     		 <div class = "outputbox"> innerText = lastconversion </div>
+
+	<script type="text/javascript">
+		});
+</script>
 
 
 
