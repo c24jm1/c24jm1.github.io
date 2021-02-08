@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#input{  }
+
+		#countdown{
+			width:200px;
+			height:200px;
+			border:1px solid green;
+			font-size:30px;
+		}
+	</style>
+
+
+
+	</head>
+<body>
+
+<input id="input">
+	
+
+</input>
+
+<button id="button">submit</button>
+
+<div id="countdown"></div> <button id="button2">start!</button>
+
+	<script type="text/javascript">
+var button = document.getElementById("button");
+
+var button2 = document.getElementById("button2");
+var countdownBox = document.getElementById("countdown");
+var input = document.getElementById("input");
+
+
+
+button.addEventListener("click", function()
+{
+	while(countdownBox.innerText)
+	var seconds = input.value;
+
+	if(isNaN(countdownBox.innerText){
+		countdownBox.innerText="Nope!"
+	}
+
+	function stopwatch(){
+	seconds = seconds-1;
+	countdownBox.innerText =seconds;
+}
+
+
+	countdownBox.innerText = seconds;
+	setInterval(stopwatch, 1000);
+
+
+
+
+
+})
+
+	</script>
+
+</body>
+</html>
